@@ -1,17 +1,14 @@
 package main
 
 import (
-	"github.com/aws/aws-lambda-go/lambda"
 	"context"
+	"github.com/aws/aws-lambda-go/lambda"
+	"github.com/aws/aws-lambda-go/events"
 )
 
-type event struct {
-	name string
-}
-
-func HandleRequest(ctx context.Context, name event)(string, error) {
+func HandleRequest(ctx context.Context, payload events.CloudWatchEvent) (string, error) {
 	p()
-	return string(name.name), nil
+	return string(payload.Region), nil
 }
 
 func main() {

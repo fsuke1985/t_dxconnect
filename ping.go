@@ -1,12 +1,13 @@
 package main
 
-import 	(
-	"github.com/go-ping/ping"
+import (
 	"fmt"
+	"os"
+	"github.com/go-ping/ping"
 )
 
 func p() {
-	pinger, err := ping.NewPinger("127.0.0.1")
+	pinger, err := ping.NewPinger(os.Getenv("PINGTARGET"))
 
 	if err != nil { panic(err)}
 
